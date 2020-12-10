@@ -55,4 +55,28 @@ public class UsuarioService implements UsuarioServices, UserDetailsService {
     public Usuario findByEmail(String email) {
         return usuarioRepositoryObj.findByEmail(email);
     }
+
+
+    @Override
+    public Usuario save(Usuario usuario) {
+        return usuarioRepositoryObj.save(usuario);
+    }
+
+
+    @Override
+    public List<Usuario> listaPacientes(String tipo) {
+        return usuarioRepositoryObj.findAllByTipo(tipo);
+    }
+
+
+    @Override
+    public List<Usuario> listaDoctores(String tipo) {
+        return usuarioRepositoryObj.findAllByTipo(tipo);
+    }
+
+
+    @Override
+    public Usuario findById(Long id) {
+        return usuarioRepositoryObj.findById(id).orElse(null);
+    }
 }

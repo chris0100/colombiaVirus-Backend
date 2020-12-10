@@ -12,7 +12,7 @@ public class Usuario implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true, length = 20)
+    @Column(unique = true)
     private String username;
 
     @Column(length = 60)
@@ -26,6 +26,17 @@ public class Usuario implements Serializable {
 
     private String email;
 
+    private Double edad;
+
+    private String cedula;
+
+    @Transient
+    private String[] roles;
+
+    private String tipo;
+
+    private String telefono;
+
 
     //Cada vez que se elimina un usuario, se elimina su rol
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -36,6 +47,46 @@ public class Usuario implements Serializable {
 
 
     //GETTER AND SETTER
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String[] getRoles() {
+        return roles;
+    }
+
+    public void setRoles(String[] roles) {
+        this.roles = roles;
+    }
+
+    public String getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }
+
+    public Double getEdad() {
+        return edad;
+    }
+
+    public void setEdad(Double edad) {
+        this.edad = edad;
+    }
+
     public String getNombre() {
         return nombre;
     }
